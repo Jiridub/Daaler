@@ -2917,7 +2917,6 @@ input, select, textarea {
     padding: 9em 0;
     text-align: center;
     color: rgba(0, 0, 0, 0.75);
-
     background: url("images/Logo_Daaler.png") center center / cover no-repeat;
     overflow: hidden;
     z-index: 1;
@@ -2931,69 +2930,57 @@ input, select, textarea {
     left: 0;
     right: 0;
     bottom: 0;
-    background: #fff; /* čistě bílá */
+    background: #fff;
     animation: fadeOutWhite 1.2s ease-out forwards;
     pointer-events: none;
     z-index: 2;
 }
 
-/* Animační klíče – zmizí bílá vrstva */
 @keyframes fadeOutWhite {
     0% { opacity: 1; }
     100% { opacity: 0; }
 }
 
-/* Odkazy v headeru */
+/* Odkazy */
 #header a {
     border-bottom-color: rgba(0, 0, 0, 0.5);
     color: inherit;
 }
 
-/* ================== RESPONSIVITA ================== */
+/* =============== RESPONSIVITA =============== */
 
-/* Desktop (výchozí) */
+/* Desktop */
 #header {
-    background-size: cover;
     background-position: center center;
-    padding: 9em 0;
+    background-size: cover;
 }
 
-/* Tablety – landscape */
-@media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+/* ---- TABLETY (OBĚ ORIENTACE) ---- */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
     #header {
-        background-size: 100% auto;
         background-position: center center;
-        padding: 6em 0;
+        background-size: contain; /* místo cover – aby nebyl ořez a přiblížení */
+        padding: 7em 0;
     }
 }
 
-/* Tablety – portrait */
-@media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-    #header {
-        background-size: auto 100%;
-        background-position: center center;
-        padding: 6em 0;
-    }
-}
-
-/* Telefony – portrait */
+/* ---- MOBIL – PORTRAIT ---- */
 @media screen and (max-width: 767px) and (orientation: portrait) {
     #header {
         background-size: contain;
         background-position: center center;
-        padding: 4em 0;
+        padding: 5em 0;
     }
 }
 
-/* Telefony – landscape */
+/* ---- MOBIL – LANDSCAPE ---- */
 @media screen and (max-width: 767px) and (orientation: landscape) {
     #header {
         background-size: cover;
         background-position: center center;
-        padding: 3em 0;
+        padding: 4em 0;
     }
 }
-
 
 		#header a {
 			border-bottom-color: rgba(255, 255, 255, 0.5);

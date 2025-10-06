@@ -2968,14 +2968,14 @@ input, select, textarea {
         background-size: contain;
         background-position: center center;
         padding: 7em 0;
-        min-height: 100vh; /* zajištění vertikálního centrování */
+        min-height: 50vh; /* zajištění vertikálního centrování */
     }
 }
 
 /* Tablet – LANDSCAPE */
 @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     #header {
-        background-size: 80% auto; /* menší přiblížení */
+        background-size: 60% auto; /* menší přiblížení */
         background-position: center center;
         padding: 6em 0;
         min-height: 80vh;
@@ -2988,7 +2988,7 @@ input, select, textarea {
         background-size: 100% auto; /* zvětšení pro vyplnění prostoru */
         background-position: center center;
         padding: 9em 0;
-        min-height: 100vh;
+        min-height: 50vh;
     }
 }
 

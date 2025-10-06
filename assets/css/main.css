@@ -2913,16 +2913,37 @@ input, select, textarea {
 /* Header */
 
 	#header {
-    padding: 9em 0;  /* zachová stejný padding */
-    background-color: transparent; /* odstraníme modrou */
-    background-image: url("images/Logo_Daaler.png"); /* tvoje PNG */
-    background-position: center center; /* vycentrování */
-    background-size: cover; /* roztáhne přes celý header */
-    background-repeat: no-repeat;
-    background-attachment: scroll; /* nebo scroll, podle potřeby */
+    padding: 9em 0;
+    background-color: #fff; /* bílá místo modré */
+    color: rgba(0, 0, 0, 0.75); /* text může být tmavý, nebo uprav podle potřeby */
+    
+    /* Vícevrstvé pozadí pro postupný efekt */
+    background-image: url("images/overlay2.png"), url("images/tvoje-png.png");
+    background-position: top left, center center;
+    background-size: auto, cover;
+    background-repeat: no-repeat, no-repeat;
+    
+    /* Efekt při scrollu */
+    background-attachment: scroll, scroll;
+
     overflow: hidden;
     position: relative;
     text-align: center;
+}
+
+/* Pro tablety a mobily optimalizace */
+@media screen and (max-width: 1024px) {
+    #header {
+        padding: 6em 0;
+        background-size: auto, contain; /* druhá vrstva se přizpůsobí */
+        background-attachment: scroll, scroll;
+    }
+}
+@media screen and (max-width: 768px) {
+    #header {
+        padding: 4em 0;
+        background-size: auto, cover;
+    }
 }
 
 		#header a {

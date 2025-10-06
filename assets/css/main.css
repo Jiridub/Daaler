@@ -2965,10 +2965,13 @@ input, select, textarea {
 /* Tablet – PORTRAIT */
 @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
     #header {
-        background-size: contain;
-        background-position: center top;
-        padding: 7em 0;
-        min-height: 60vh; /* zajištění vertikálního centrování */
+        background-size: cover;           /* zachování pokrytí celé plochy */
+        background-position: center center; /* logo vycentrované */
+        padding: 7em 0;                   /* prostor kolem loga */
+        min-height: auto;                 /* odstranění přehnaného výškového prostoru */
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 
@@ -2985,12 +2988,14 @@ input, select, textarea {
 /* Mobil – PORTRAIT */
 @media screen and (max-width: 767px) and (orientation: portrait) {
     #header {
-        background-size: 100% auto; /* zvětšení pro vyplnění prostoru */
-        background-position: center top;
+        background-size: cover;           /* zachování poměru stran a pokrytí */
+        background-position: center center; /* vertikální centrum */
         padding: 9em 0;
-        min-height: 100vh;
+        min-height: auto;                 /* výška přizpůsobena obsahu */
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
-}
 
 /* Mobil – LANDSCAPE */
 @media screen and (max-width: 767px) and (orientation: landscape) {

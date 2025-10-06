@@ -15,6 +15,18 @@
 	<body class="is-preload">
 
 		<!-- Header -->
+
+		#header .inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* tlačítko bude dole */
+    height: 100%; /* zabere celou výšku headeru */
+    align-items: center; /* tlačítko vycentrované horizontálně */
+}
+
+#header .actions.special {
+    margin-bottom: 50px; /* vzdálenost od spodního okraje, uprav podle potřeby */
+}
 			<section id="header">
 				<div class="inner">
 					<ul class="actions special">
@@ -461,4 +473,5 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 	</body>
 
 </html>
+
 

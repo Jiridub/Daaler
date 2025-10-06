@@ -2913,17 +2913,17 @@ input, select, textarea {
 /* Header */
 
 	#header {
-		padding: 9em 0 9em 0 ;
-		background-color: #4686a0;
-		color: rgba(255, 255, 255, 0.75);
-		background-attachment: fixed,							fixed,							fixed;
-		background-image: url("images/overlay2.png"), url("images/overlay3.svg"), linear-gradient(45deg, #9dc66b 5%, #4fa49a 30%, #4361c2);
-		background-position: top left,						center center,					center center;
-		background-size: auto,							cover,							cover;
-		overflow: hidden;
-		position: relative;
-		text-align: center;
-	}
+    padding: 9em 0;  /* zachová stejný padding */
+    background-color: transparent; /* odstraníme modrou */
+    background-image: url("images/Logo_Daaler.png"); /* tvoje PNG */
+    background-position: center center; /* vycentrování */
+    background-size: cover; /* roztáhne přes celý header */
+    background-repeat: no-repeat;
+    background-attachment: scroll; /* nebo scroll, podle potřeby */
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+}
 
 		#header a {
 			border-bottom-color: rgba(255, 255, 255, 0.5);

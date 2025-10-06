@@ -2917,88 +2917,96 @@ input, select, textarea {
     padding: 9em 0;
     text-align: center;
     color: rgba(0, 0, 0, 0.75);
+
+    /* Hlavní obrázek */
     background: url("images/Logo_Daaler.png") center center / cover no-repeat;
+    background-color: transparent; /* žádné prolnutí barev */
     overflow: hidden;
+    z-index: 1;
 }
 
-/* Overlay s fade-in efektem */
+/* Overlay – fade-in efekt pouze v headeru */
 #header::before {
     content: "";
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background: url("images/overlay2.png") top left / auto no-repeat;
     opacity: 0;
-    animation: fadeInOverlay 1s forwards;
+    animation: fadeInOverlay 1s ease-in forwards;
     pointer-events: none;
+    z-index: 2;
 }
 
-/* Animace fade-in pro overlay */
+/* Fade-in animace */
 @keyframes fadeInOverlay {
     to { opacity: 1; }
 }
 
-/* Desktop (default) */
+/* Odkazy v headeru */
+#header a {
+    border-bottom-color: rgba(0, 0, 0, 0.5);
+    color: inherit;
+}
+
+/* ================== RESPONSIVITA ================== */
+
+/* Desktop (výchozí) */
 #header {
     background-size: cover;
     background-position: center center;
     padding: 9em 0;
 }
 
-/* Tablety - landscape */
+/* Tablety – landscape */
 @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     #header {
-        background-size: 100% auto; /* přizpůsobení šířce, žádné vertikální přiblížení */
+        background-size: 100% auto; /* přizpůsobení šířce */
         background-position: center top;
         padding: 6em 0;
     }
-    #header::before {
-        background-size: auto; /* overlay necháme menší */
-        background-position: center top;
-    }
 }
 
-/* Tablety - portrait */
+/* Tablety – portrait */
 @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
     #header {
-        background-size: auto 100%; /* přizpůsobíme výšce */
+        background-size: auto 100%; /* přizpůsobení výšce */
         background-position: center center;
         padding: 6em 0;
     }
-    #header::before {
-        background-size: auto;
-        background-position: center center;
-    }
 }
 
-/* Telefony - portrait */
+/* Telefony – portrait */
 @media screen and (max-width: 767px) and (orientation: portrait) {
     #header {
-        background-size: contain;
-        background-position: center center;
+        background-size: contain; /* celý obrázek viditelný */
+        background-position: center top;
         padding: 4em 0;
-    }
-    #header::before {
-        background-size: auto;
-        background-position: center center;
     }
 }
 
-/* Telefony - landscape */
+/* Telefony – landscape */
 @media screen and (max-width: 767px) and (orientation: landscape) {
     #header {
         background-size: cover;
         background-position: center center;
         padding: 3em 0;
     }
-    #header::before {
-        background-size: auto;
-        background-position: center center;
-    }
 }
 
-/* Styl odkazů v headeru */
-#header a {
-    border-bottom-color: rgba(0, 0, 0, 0.5);
+/* =============== OSTATNÍ SEKCE STRÁNKY =============== */
+
+/* Nastavíme barvu zbytku stránky, aby se bílé pozadí nerozlévalo */
+body, .main, .main.style1, .main.style2 {
+    background-color: #fff;
+}
+
+/* Ujistíme se, že overlay z headeru se nedotýká jiných částí */
+.main, footer {
+    position: relative;
+    z-index: 1;
 }
 
 		#header a {

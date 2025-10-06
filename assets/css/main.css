@@ -2917,12 +2917,22 @@ input, select, textarea {
     padding: 9em 0;
     text-align: center;
     color: rgba(0, 0, 0, 0.75);
-    background: url("images/Logo_Daaler.png") center center / cover no-repeat;
     overflow: hidden;
     z-index: 1;
+
+    /* Výchozí obrázek */
+    background-image: url("images/Logo_Daaler.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+
+    /* Tento řádek zaručí správné centrování i na mobilech */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Bílý fade-in efekt */
+/* Fade-in efekt (bílý přechod) */
 #header::before {
     content: "";
     position: absolute;
@@ -2951,15 +2961,15 @@ input, select, textarea {
 
 /* Desktop */
 #header {
-    background-position: center center;
     background-size: cover;
+    background-position: center center;
 }
 
 /* ---- TABLETY (OBĚ ORIENTACE) ---- */
 @media screen and (min-width: 768px) and (max-width: 1024px) {
     #header {
+        background-size: contain;
         background-position: center center;
-        background-size: contain; /* místo cover – aby nebyl ořez a přiblížení */
         padding: 7em 0;
     }
 }
@@ -2970,6 +2980,7 @@ input, select, textarea {
         background-size: contain;
         background-position: center center;
         padding: 5em 0;
+        min-height: 100vh; /* důležité – vycentrování vertikálně */
     }
 }
 
@@ -2979,8 +2990,10 @@ input, select, textarea {
         background-size: cover;
         background-position: center center;
         padding: 4em 0;
+        min-height: 100vh;
     }
 }
+
 
 		#header a {
 			border-bottom-color: rgba(255, 255, 255, 0.5);

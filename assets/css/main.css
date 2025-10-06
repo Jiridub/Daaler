@@ -2918,7 +2918,7 @@ input, select, textarea {
     color: rgba(0, 0, 0, 0.75); /* text může být tmavý, nebo uprav podle potřeby */
     
     /* Vícevrstvé pozadí pro postupný efekt */
-    background-image: url("images/overlay2.png"), url("images/tvoje-png.png");
+    background-image: url("images/overlay2.png"), url("images/Logo_Daaler.png");
     background-position: top left, center center;
     background-size: auto, cover;
     background-repeat: no-repeat, no-repeat;

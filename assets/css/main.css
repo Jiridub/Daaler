@@ -2914,35 +2914,62 @@ input, select, textarea {
 
 	#header {
     padding: 9em 0;
-    background-color: #fff; /* bílá místo modré */
-    color: rgba(0, 0, 0, 0.75); /* text může být tmavý, nebo uprav podle potřeby */
+    background-color: #fff; /* fallback barva */
+    color: rgba(0,0,0,0.75);
     
-    /* Vícevrstvé pozadí pro postupný efekt */
+    /* vícevrstvé pozadí pro postupný efekt */
     background-image: url("images/overlay2.png"), url("images/Logo_Daaler.png");
     background-position: top left, center center;
     background-size: auto, cover;
     background-repeat: no-repeat, no-repeat;
-    
-    /* Efekt při scrollu */
     background-attachment: scroll, scroll;
 
     overflow: hidden;
     position: relative;
     text-align: center;
+
+    /* fade-in pro overlay */
+    opacity: 0;
+    animation: fadeInOverlay 1s forwards;
 }
 
-/* Pro tablety a mobily optimalizace */
-@media screen and (max-width: 1024px) {
+@keyframes fadeInOverlay {
+    to { opacity: 1; }
+}
+
+/* Tablety - landscape */
+@media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     #header {
+        background-size: auto, contain;
+        background-position: center center;
         padding: 6em 0;
-        background-size: auto, contain; /* druhá vrstva se přizpůsobí */
-        background-attachment: scroll, scroll;
     }
 }
-@media screen and (max-width: 768px) {
+
+/* Tablety - portrait */
+@media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
     #header {
-        padding: 4em 0;
         background-size: auto, cover;
+        background-position: center center;
+        padding: 6em 0;
+    }
+}
+
+/* Telefony - portrait */
+@media screen and (max-width: 767px) and (orientation: portrait) {
+    #header {
+        background-size: auto, contain;
+        background-position: center center;
+        padding: 4em 0;
+    }
+}
+
+/* Telefony - landscape */
+@media screen and (max-width: 767px) and (orientation: landscape) {
+    #header {
+        background-size: auto, cover;
+        background-position: center center;
+        padding: 3em 0;
     }
 }
 

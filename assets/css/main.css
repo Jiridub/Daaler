@@ -2957,28 +2957,29 @@ input, select, textarea {
 /* ===== RESPONSIVITA ===== */
 
 /* Desktop */
-#header {
-    background-size: cover;
-    background-position: center center;
+@media screen and (min-width: 1025px) {
+    #header {
+        background-size: cover;
+        background-position: center center;
+        padding: 9em 0;
+        min-height: 100vh;
+    }
 }
 
 /* Tablet – PORTRAIT */
 @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
     #header {
-        background-size: cover;           /* zachování pokrytí celé plochy */
-        background-position: center center; /* logo vycentrované */
-        padding: 7em 0;                   /* prostor kolem loga */
-        min-height: auto;                 /* odstranění přehnaného výškového prostoru */
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        background-size: cover;
+        background-position: center center;
+        padding: 9em 0;
+        min-height: 100vh;
     }
 }
 
 /* Tablet – LANDSCAPE */
 @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     #header {
-        background-size: 60% auto; /* menší přiblížení */
+        background-size: 60% auto;      /* lehké přiblížení loga */
         background-position: center center;
         padding: 6em 0;
         min-height: 80vh;
@@ -2988,14 +2989,12 @@ input, select, textarea {
 /* Mobil – PORTRAIT */
 @media screen and (max-width: 767px) and (orientation: portrait) {
     #header {
-        background-size: cover;           /* zachování poměru stran a pokrytí */
-        background-position: center center; /* vertikální centrum */
+        background-size: cover;
+        background-position: center center;
         padding: 9em 0;
-        min-height: auto;                 /* výška přizpůsobena obsahu */
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        min-height: 100vh;
     }
+}
 
 /* Mobil – LANDSCAPE */
 @media screen and (max-width: 767px) and (orientation: landscape) {

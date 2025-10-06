@@ -2926,7 +2926,7 @@ input, select, textarea {
     background-position: center center;
     background-size: cover;
 
-    /* Flex pro vertikální centrování */
+    /* Tento řádek zaručí správné centrování i na mobilech */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2936,7 +2936,10 @@ input, select, textarea {
 #header::before {
     content: "";
     position: absolute;
-    inset: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background: #fff;
     animation: fadeOutWhite 1.2s ease-out forwards;
     pointer-events: none;
@@ -2954,55 +2957,40 @@ input, select, textarea {
     color: inherit;
 }
 
-/* ===== RESPONSIVITA ===== */
+/* =============== RESPONSIVITA =============== */
 
 /* Desktop */
-@media screen and (min-width: 1025px) {
+#header {
+    background-size: cover;
+    background-position: center center;
+}
+
+/* ---- TABLETY (OBĚ ORIENTACE) ---- */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
     #header {
-        background-size: cover;
+        background-size: contain;
         background-position: center center;
-        padding: 9em 0;
-        min-height: 100vh;
+        padding: 7em 0;
     }
 }
 
-/* Tablet – PORTRAIT */
-@media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-    #header {
-        background-size: cover;
-        background-position: center center;
-        padding: 9em 0;
-        min-height: 100vh;
-    }
-}
-
-/* Tablet – LANDSCAPE */
-@media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-    #header {
-        background-size: 60% auto;      /* lehké přiblížení loga */
-        background-position: center center;
-        padding: 6em 0;
-        min-height: 80vh;
-    }
-}
-
-/* Mobil – PORTRAIT */
+/* ---- MOBIL – PORTRAIT ---- */
 @media screen and (max-width: 767px) and (orientation: portrait) {
     #header {
-        background-size: cover;
+        background-size: contain;
         background-position: center center;
-        padding: 9em 0;
-        min-height: 100vh;
+        padding: 5em 0;
+        min-height: 100vh; /* důležité – vycentrování vertikálně */
     }
 }
 
-/* Mobil – LANDSCAPE */
+/* ---- MOBIL – LANDSCAPE ---- */
 @media screen and (max-width: 767px) and (orientation: landscape) {
     #header {
         background-size: cover;
         background-position: center center;
         padding: 4em 0;
-        min-height: 60vh;
+        min-height: 100vh;
     }
 }
 

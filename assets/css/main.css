@@ -2918,14 +2918,12 @@ input, select, textarea {
     text-align: center;
     color: rgba(0, 0, 0, 0.75);
 
-    /* Hlavní obrázek */
     background: url("images/Logo_Daaler.png") center center / cover no-repeat;
-    background-color: transparent; /* žádné prolnutí barev */
     overflow: hidden;
     z-index: 1;
 }
 
-/* Overlay – fade-in efekt pouze v headeru */
+/* Bílý fade-in efekt */
 #header::before {
     content: "";
     position: absolute;
@@ -2933,16 +2931,16 @@ input, select, textarea {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url("images/overlay2.png") top left / auto no-repeat;
-    opacity: 0;
-    animation: fadeInOverlay 1s ease-in forwards;
+    background: #fff; /* čistě bílá */
+    animation: fadeOutWhite 1.2s ease-out forwards;
     pointer-events: none;
     z-index: 2;
 }
 
-/* Fade-in animace */
-@keyframes fadeInOverlay {
-    to { opacity: 1; }
+/* Animační klíče – zmizí bílá vrstva */
+@keyframes fadeOutWhite {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
 }
 
 /* Odkazy v headeru */
@@ -2963,7 +2961,7 @@ input, select, textarea {
 /* Tablety – landscape */
 @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     #header {
-        background-size: 100% auto; /* přizpůsobení šířce */
+        background-size: 100% auto;
         background-position: center top;
         padding: 6em 0;
     }
@@ -2972,7 +2970,7 @@ input, select, textarea {
 /* Tablety – portrait */
 @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
     #header {
-        background-size: auto 100%; /* přizpůsobení výšce */
+        background-size: auto 100%;
         background-position: center center;
         padding: 6em 0;
     }
@@ -2981,7 +2979,7 @@ input, select, textarea {
 /* Telefony – portrait */
 @media screen and (max-width: 767px) and (orientation: portrait) {
     #header {
-        background-size: contain; /* celý obrázek viditelný */
+        background-size: contain;
         background-position: center top;
         padding: 4em 0;
     }
@@ -2996,18 +2994,6 @@ input, select, textarea {
     }
 }
 
-/* =============== OSTATNÍ SEKCE STRÁNKY =============== */
-
-/* Nastavíme barvu zbytku stránky, aby se bílé pozadí nerozlévalo */
-body, .main, .main.style1, .main.style2 {
-    background-color: #fff;
-}
-
-/* Ujistíme se, že overlay z headeru se nedotýká jiných částí */
-.main, footer {
-    position: relative;
-    z-index: 1;
-}
 
 		#header a {
 			border-bottom-color: rgba(255, 255, 255, 0.5);

@@ -2995,7 +2995,7 @@ input, select, textarea {
 /* Mobil – LANDSCAPE */
 @media screen and (max-width: 767px) and (orientation: landscape) {
     #header {
-        background-size: cover;
+        background-size: 100% auto; /* zvětšení pro vyplnění prostoru */
         background-position: center center;
         padding: 4em 0;
         min-height: 100vh;

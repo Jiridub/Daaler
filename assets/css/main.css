@@ -2926,7 +2926,7 @@ input, select, textarea {
     background-position: center center;
     background-size: cover;
 
-    /* Tento řádek zaručí správné centrování i na mobilech */
+    /* Flex pro vertikální centrování */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2936,10 +2936,7 @@ input, select, textarea {
 #header::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     background: #fff;
     animation: fadeOutWhite 1.2s ease-out forwards;
     pointer-events: none;
@@ -2957,7 +2954,7 @@ input, select, textarea {
     color: inherit;
 }
 
-/* =============== RESPONSIVITA =============== */
+/* ===== RESPONSIVITA ===== */
 
 /* Desktop */
 #header {
@@ -2965,26 +2962,37 @@ input, select, textarea {
     background-position: center center;
 }
 
-/* ---- TABLETY (OBĚ ORIENTACE) ---- */
-@media screen and (min-width: 768px) and (max-width: 1024px) {
+/* Tablet – PORTRAIT */
+@media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
     #header {
         background-size: contain;
         background-position: center center;
         padding: 7em 0;
+        min-height: 100vh; /* zajištění vertikálního centrování */
     }
 }
 
-/* ---- MOBIL – PORTRAIT ---- */
+/* Tablet – LANDSCAPE */
+@media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    #header {
+        background-size: 80% auto; /* menší přiblížení */
+        background-position: center center;
+        padding: 6em 0;
+        min-height: 80vh;
+    }
+}
+
+/* Mobil – PORTRAIT */
 @media screen and (max-width: 767px) and (orientation: portrait) {
     #header {
-        background-size: contain;
+        background-size: 100% auto; /* zvětšení pro vyplnění prostoru */
         background-position: center center;
-        padding: 5em 0;
-        min-height: 100vh; /* důležité – vycentrování vertikálně */
+        padding: 9em 0;
+        min-height: 100vh;
     }
 }
 
-/* ---- MOBIL – LANDSCAPE ---- */
+/* Mobil – LANDSCAPE */
 @media screen and (max-width: 767px) and (orientation: landscape) {
     #header {
         background-size: cover;

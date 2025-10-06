@@ -2913,64 +2913,92 @@ input, select, textarea {
 /* Header */
 
 	#header {
-    padding: 9em 0;
-    background-color: #fff; /* fallback barva */
-    color: rgba(0,0,0,0.75);
-    
-    /* vícevrstvé pozadí pro postupný efekt */
-    background-image: url("images/overlay2.png"), url("images/Logo_Daaler.png");
-    background-position: top left, center center;
-    background-size: auto, cover;
-    background-repeat: no-repeat, no-repeat;
-    background-attachment: scroll, scroll;
-
-    overflow: hidden;
     position: relative;
+    padding: 9em 0;
     text-align: center;
-
-    /* fade-in pro overlay */
-    opacity: 0;
-    animation: fadeInOverlay 1s forwards;
+    color: rgba(0, 0, 0, 0.75);
+    background: url("images/Logo_Daaler.png") center center / cover no-repeat;
+    overflow: hidden;
 }
 
+/* Overlay s fade-in efektem */
+#header::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url("images/overlay2.png") top left / auto no-repeat;
+    opacity: 0;
+    animation: fadeInOverlay 1s forwards;
+    pointer-events: none;
+}
+
+/* Animace fade-in pro overlay */
 @keyframes fadeInOverlay {
     to { opacity: 1; }
+}
+
+/* Desktop (default) */
+#header {
+    background-size: cover;
+    background-position: center center;
+    padding: 9em 0;
 }
 
 /* Tablety - landscape */
 @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     #header {
-        background-size: auto, contain;
+        background-size: contain;
         background-position: center center;
         padding: 6em 0;
+    }
+    #header::before {
+        background-size: auto;
+        background-position: center center;
     }
 }
 
 /* Tablety - portrait */
 @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
     #header {
-        background-size: auto, cover;
+        background-size: cover;
         background-position: center center;
         padding: 6em 0;
+    }
+    #header::before {
+        background-size: auto;
+        background-position: center center;
     }
 }
 
 /* Telefony - portrait */
 @media screen and (max-width: 767px) and (orientation: portrait) {
     #header {
-        background-size: auto, contain;
+        background-size: contain;
         background-position: center center;
         padding: 4em 0;
+    }
+    #header::before {
+        background-size: auto;
+        background-position: center center;
     }
 }
 
 /* Telefony - landscape */
 @media screen and (max-width: 767px) and (orientation: landscape) {
     #header {
-        background-size: auto, cover;
+        background-size: cover;
         background-position: center center;
         padding: 3em 0;
     }
+    #header::before {
+        background-size: auto;
+        background-position: center center;
+    }
+}
+
+/* Styl odkazů v headeru */
+#header a {
+    border-bottom-color: rgba(0, 0, 0, 0.5);
 }
 
 		#header a {

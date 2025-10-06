@@ -2947,20 +2947,20 @@ input, select, textarea {
 /* Tablety - landscape */
 @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     #header {
-        background-size: contain;
-        background-position: center center;
+        background-size: 100% auto; /* přizpůsobení šířce, žádné vertikální přiblížení */
+        background-position: center top;
         padding: 6em 0;
     }
     #header::before {
-        background-size: auto;
-        background-position: center center;
+        background-size: auto; /* overlay necháme menší */
+        background-position: center top;
     }
 }
 
 /* Tablety - portrait */
 @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
     #header {
-        background-size: cover;
+        background-size: auto 100%; /* přizpůsobíme výšce */
         background-position: center center;
         padding: 6em 0;
     }

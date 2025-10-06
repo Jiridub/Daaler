@@ -2968,7 +2968,7 @@ input, select, textarea {
         background-size: contain;
         background-position: center center;
         padding: 7em 0;
-        min-height: 100vh; /* zajištění vertikálního centrování */
+        min-height: 60vh; /* zajištění vertikálního centrování */
     }
 }
 
@@ -2998,7 +2998,7 @@ input, select, textarea {
         background-size: cover;
         background-position: center center;
         padding: 4em 0;
-        min-height: 100vh;
+        min-height: 60vh;
     }
 }
 

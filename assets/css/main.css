@@ -3598,55 +3598,44 @@ input, select, textarea {
 /* --- Video náhled s přehráváním --- */
 .video-wrapper {
     position: relative;
+    width: 100%;
     max-width: 800px;
     margin: 0 auto;
     cursor: pointer;
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.3);
 }
 
-.video-thumb {
+.video-wrapper img.video-thumb {
     width: 100%;
     height: auto;
     display: block;
-    transition: transform 0.3s ease;
 }
 
-.video-wrapper:hover .video-thumb {
-    transform: scale(1.03);
-}
-
-/* Play tlačítko uprostřed */
 .play-button {
     position: absolute;
     top: 50%;
     left: 50%;
+    transform: translate(-50%, -50%);
     width: 80px;
     height: 80px;
     background: rgba(0, 0, 0, 0.6);
     border-radius: 50%;
-    transform: translate(-50%, -50%);
 }
 
-.play-button::before {
+.play-button::after {
     content: '';
     position: absolute;
-    left: 32px;
-    top: 22px;
+    left: 34%;
+    top: 26%;
     width: 0;
     height: 0;
-    border-left: 24px solid white;
-    border-top: 18px solid transparent;
-    border-bottom: 18px solid transparent;
+    border-left: 26px solid white;
+    border-top: 16px solid transparent;
+    border-bottom: 16px solid transparent;
 }
 
-/* iframe po kliknutí */
-.video-wrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
+.video-iframe {
     width: 100%;
-    height: 100%;
-    border: 0;
+    height: 450px;
+    border: none;
+    display: block;
 }

@@ -475,14 +475,14 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 document.querySelectorAll('.video-wrapper').forEach(wrapper => {
     wrapper.addEventListener('click', () => {
         const videoSrc = wrapper.getAttribute('data-video');
-        const iframe = document.createElement('iframe');
-        iframe.src = `${videoSrc}?autoplay=1`;
-        iframe.frameBorder = '0';
-        iframe.allow = 'autoplay; fullscreen; picture-in-picture';
-        iframe.allowFullscreen = true;
-        iframe.classList.add('video-iframe');
-        wrapper.innerHTML = '';
-        wrapper.appendChild(iframe);
+        wrapper.innerHTML = `
+            <iframe 
+                src="${videoSrc}?autoplay=1"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowfullscreen
+                class="video-iframe">
+            </iframe>`;
     });
 });
 </script>
@@ -490,6 +490,7 @@ document.querySelectorAll('.video-wrapper').forEach(wrapper => {
 	</body>
 
 </html>
+
 
 
 

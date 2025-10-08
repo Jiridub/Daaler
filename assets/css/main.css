@@ -2975,15 +2975,11 @@ input, select, textarea {
 /* Tablet – LANDSCAPE */
 @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     #header {
-        background-size: contain;           /* logo celé vidět */
-        background-position: center center; /* vycentrované */
-        background-repeat: no-repeat;       /* bez opakování */
-        padding: 0;                         /* odstranění vertikálního ořezu způsobeného paddingem */
-        min-height: 100vh;                  /* zabere celou výšku obrazovky */
-        display: flex;                      /* centrování obsahu */
-        justify-content: center;
-        align-items: center;
-        aspect-ratio: 3 / 1;                /* přibližný poměr stran loga */
+background-size: contain; /* nebo cover, pokud chceš vyplnit */
+background-position: top center; /* nebo center center, podle potřeby */
+min-height: auto; /* nebo jen padding pro velikost bloku */
+height: auto; /* dovolí headeru růst podle obsahu */
+aspect-ratio: unset; /* odstranění konfliktního poměru */
     }
 }
 

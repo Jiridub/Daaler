@@ -2996,6 +2996,13 @@ input, select, textarea {
     min-height: 60vh;               /* aby byl prostor */
     padding: 0;                      /* bez vnitřních okrajů */
 }
+/* Edge fallback pro mizící obrázek */
+@supports (-ms-ime-align:auto) {
+    #header {
+        background-size: contain;    /* Edge lépe vykreslí */
+    }
+}
+
 /* Tablet – PORTRAIT */
 @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
     #header {

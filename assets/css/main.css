@@ -2924,9 +2924,10 @@ input, select, textarea {
     .main.style2 {
         background-attachment: scroll, scroll;
         background-position: center center;
-        background-size: auto, cover; /* můžeš přepnout na 'contain', pokud chceš celý obrázek */
+        background-size: auto, cover; /* místo contain */
+        background-color: transparent; /* odstraníme šedou barvu */
     }
-}
+
 /* Header */
 
 	#header {

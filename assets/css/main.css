@@ -2919,7 +2919,7 @@ input, select, textarea {
     color: #ffffff;
 }
 
-/* 📱 TABLETY A MOBILY – náhrada za background-attachment: fixed */
+/* 📱 MOBILY – zachováno původní */
 @media screen and (max-width: 1024px) {
     .main.style2 {
         background-attachment: scroll, scroll;
@@ -2927,6 +2927,19 @@ input, select, textarea {
         background-size: auto, cover; /* místo contain */
         background-color: transparent; /* odstraníme šedou barvu */
     }
+}
+
+/* 📱 TABLETY – landscape / šířka 1025px až 1280px */
+@media screen and (min-width: 1025px) and (max-width: 1280px) {
+    .main.style2 {
+        background-attachment: scroll, scroll;
+        background-position: center center;
+        background-size: auto, cover;
+        background-repeat: repeat, no-repeat;
+        background-color: transparent;
+        background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("../../images/IMG_1824.jpeg");
+    }
+}
 
 /* Header */
 

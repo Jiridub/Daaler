@@ -65,17 +65,34 @@
 					<header class="major">
 						<h2>Reference a výsledky</h2>
 					</header>
-					<!-- Video sekce -->
-<div class="video-wrapper">
-  <iframe 
-    src="https://player.vimeo.com/video/1057620315" 
-    width="640" 
-    height="360" 
-    frameborder="0" 
-    allow="autoplay; fullscreen; picture-in-picture" 
-    allowfullscreen>
-  </iframe>
+<!-- Video sekce -->
+<div class="video-wrapper" style="position:relative; width:100%; padding-top:56.25%; cursor:pointer;">
+  <img src="images/IMG_2395.jpeg" alt="Daaler" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;">
+  <div class="play-button" style="
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform:translate(-50%, -50%);
+      width:80px;
+      height:80px;
+      background:url('images/play-icon.png') no-repeat center center;
+      background-size:contain;
+  "></div>
 </div>
+
+<script>
+  const wrapper = document.querySelector('.video-wrapper');
+  wrapper.addEventListener('click', () => {
+    wrapper.innerHTML = `<iframe 
+      src="https://player.vimeo.com/video/1057620315?autoplay=1" 
+      style="position:absolute; top:0; left:0; width:100%; height:100%;" 
+      frameborder="0" 
+      allow="autoplay; fullscreen; picture-in-picture" 
+      allowfullscreen>
+    </iframe>`;
+  });
+</script>
+					
 </section>
 					<div class="row gtr-150">
 						<div class="col-4 col-12-medium">
@@ -483,6 +500,7 @@ document.querySelectorAll('.video-wrapper').forEach(wrapper => {
 	</body>
 
 </html>
+
 
 
 

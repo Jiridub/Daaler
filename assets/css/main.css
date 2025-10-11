@@ -2941,7 +2941,7 @@ input, select, textarea {
         background-position: center center; /* přesné vycentrování */
         background-repeat: no-repeat;
         background-color: transparent;             /* podklad, když okraje chybí */
-        min-height: 100vh;                  /* prostor pro celý obrázek */
+        min-height: 70vh;                  /* prostor pro celý obrázek */
         padding: 0;                         /* žádné ořezy */
         height: auto;                       /* přizpůsobí výšku */
     }

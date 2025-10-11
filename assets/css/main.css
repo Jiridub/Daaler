@@ -2958,10 +2958,13 @@ input, select, textarea {
 
 /* Desktop */
 #header {
-    background-size: cover;
+    background-size: contain;        /* zobrazí celý obrázek */
     background-position: center center;
+    background-repeat: no-repeat;    /* žádné opakování */
+    background-color: #000;          /* barva pozadí okolo loga (můžeš změnit) */
+    min-height: 100vh;               /* aby byl prostor */
+    padding: 0;                      /* bez vnitřních okrajů */
 }
-
 /* Tablet – PORTRAIT */
 @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
     #header {
@@ -2975,11 +2978,13 @@ input, select, textarea {
 /* Tablet – LANDSCAPE */
 @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     #header {
-background-size: contain; /* nebo cover, pokud chceš vyplnit */
-background-position: top center; /* nebo center center, podle potřeby */
-min-height: auto; /* nebo jen padding pro velikost bloku */
-height: auto; /* dovolí headeru růst podle obsahu */
-aspect-ratio: unset; /* odstranění konfliktního poměru */
+        background-size: contain;           /* zobrazí celý obrázek */
+        background-position: center center; /* přesné vycentrování */
+        background-repeat: no-repeat;
+        background-color: #000;             /* podklad, když okraje chybí */
+        min-height: 100vh;                  /* prostor pro celý obrázek */
+        padding: 0;                         /* žádné ořezy */
+        height: auto;                       /* přizpůsobí výšku */
     }
 }
 

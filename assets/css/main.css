@@ -2917,11 +2917,11 @@ input, select, textarea {
 
 /* Desktop */
 #header {
-    background-size: contain;        /* zobrazí celý obrázek */
+    background-size: 100% auto;        /* zobrazí celý obrázek */
     background-position: center center;
     background-repeat: no-repeat;    /* žádné opakování */
     background-color: transparent;          /* barva pozadí okolo loga (můžeš změnit) */
-    min-height: 100vh;               /* aby byl prostor */
+    min-height: 80vh;               /* aby byl prostor */
     padding: 0;                      /* bez vnitřních okrajů */
 }
 /* Tablet – PORTRAIT */

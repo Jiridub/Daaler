@@ -2823,11 +2823,11 @@ input, select, textarea {
 		}
 
 .main.style2 {
-    background-color: transparent; /* nebo úplně vynechat */
-    background-image: url("images/header.jpg"); /* tvůj obrázek */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-image: url("images/overlay1.png"), url("images/Logo_Daaler.png");
+    background-size: auto, contain;
+    background-position: center center;
+    background-repeat: repeat, no-repeat;
+    background-attachment: fixed, fixed;
 }
 
 .main.style2 a {

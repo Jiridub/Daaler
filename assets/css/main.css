@@ -2827,7 +2827,7 @@ input, select, textarea {
     color: rgba(255, 255, 255, 0.75);
     background-attachment: fixed, fixed;
     background-image: url("images/overlay1.png"), url("../../images/IMG_1824.jpeg");
-    background-size: auto, contain;
+    background-size: auto, cover; /* místo contain */
     background-position: center center;
     background-repeat: repeat, no-repeat;
 }

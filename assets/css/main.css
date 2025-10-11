@@ -2937,7 +2937,7 @@ input, select, textarea {
 /* Tablet – LANDSCAPE */
 @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     #header {
-        background-size: 80% auto;           /* zobrazí celý obrázek */
+        background-size: 70% auto;           /* zobrazí celý obrázek */
         background-position: center center; /* přesné vycentrování */
         background-repeat: no-repeat;
         background-color: transparent;             /* podklad, když okraje chybí */

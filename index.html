@@ -29,7 +29,7 @@
 							<header class="major">
 								<h2>Zakázkové Hi-Fi reproduktory z České republiky</h2>
 							</header>
-							<p>Od otce a syna, dvou párů českých rukou do Vašeho domova pro ty, kteří nechtějí běžné věci</p>
+							<p>Od otce a syna, dvou párů českých rukou do Vašeho domova </p>
 							<p>Stavíme jedinečnost na míru, jakoukoliv Vaši představu přeneseme do reality</p>
 						</div>
 						<div class="col-6 col-12-medium imp-medium">
@@ -45,15 +45,15 @@
 					<div class="row gtr-150">
 						<div class="col-12">
 							<header class="major">
-								<h2>Brand postavený na zkušenostech, technické dokonalosti, příběhu a rodině</h2>
+								<h2>Brand postavený na zkušenostech, technické dokonalosti a rodině</h2>
 							</header>
 							<p></p>
-							<p>Během 5 letého vývoje jsme vybudovali excelentní a autentický produkt</p>
-							<p>Barometr spokojenosti jsou u nás emoce a pocity = slzy, husí kůže a pocit privátního živého koncertu</p>
-							<p>Od 1991 máme kořeny v audio průmyslu => spoluzakladatel je jeden z původních zakladatelů SHAN</p>
-							<p>Komerčně nedostupné měniče vyrobené v EU</p>
-							<p>Pečlivě vyladěný autentický zvuk s vyhybkou osazenou nejkvalitnějšími komponenty</p>
-							<p>Kompletní servis od specifikace až po instalaci připravenou k poslechu</p>
+							<p>Během 5ti letého vývoje jsme vybudovali excelentní výsledek a řemeslně umělecké dílo</p>
+							<p>Barometr spokojenosti jsou u nás reálné emoce a pocity jako z privátního živého koncertu</p>
+							<p>Od 1991 máme kořeny v audio průmyslu, spoluzakladatel je jeden z původních zakladatelů SHAN audio</p>
+							<p>Máme komerčně nedostupné měniče vyrobené v EU z výroby, která produkuje pro jedny z nejvetších světových hráčů na trhu</p>
+							<p>Doplněné o pečlivě vyladěný autentický zvuk s vyhybkou osazenou nejkvalitnějšími komponenty</p>
+							<p>Zajišťujeme kompletní servis od specifikace až po instalaci připravenou k poslechu</p>
 						</div>
 					</div>
 				</div>
@@ -67,10 +67,8 @@
 					</header>
 <!-- Video sekce -->
 <div class="video-wrapper" style="position:relative; width:100%; padding-top:56.25%; cursor:pointer;">
-  <!-- Náhledové obrázek -->
   <img src="images/IMG_2395.jpeg" alt="Daaler" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;">
-  <!-- Play tlačítko -->
-  <div class="play-button" style="
+  <button class="play-button" aria-label="Přehrát video" style="
       position:absolute;
       top:50%;
       left:50%;
@@ -79,49 +77,73 @@
       height:80px;
       background:url('images/play-icon.png') no-repeat center center;
       background-size:contain;
-  "></div>
+      border:0;
+      padding:0;
+      background-color:transparent;
+      cursor:pointer;
+  "></button>
 </div>
 
 <script src="https://player.vimeo.com/api/player.js"></script>
 <script>
-  const wrapper = document.querySelector('.video-wrapper');
-  wrapper.addEventListener('click', () => {
-    wrapper.innerHTML = `<iframe 
-      src="https://player.vimeo.com/video/1057620315?badge=0&autopause=0&autoplay=1&player_id=0&app_id=58479" 
-      frameborder="0" 
-      allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
-      referrerpolicy="strict-origin-when-cross-origin" 
-      style="position:absolute; top:0; left:0; width:100%; height:100%;" 
-      title="Daaler">
-    </iframe>`;
-  });
-</script>
+  (function(){
+    const wrapper = document.querySelector('.video-wrapper');
+    if (!wrapper) return;
 
-<script src="https://player.vimeo.com/api/player.js"></script>
-<script>
-  const wrapper = document.querySelector('.video-wrapper');
-  wrapper.addEventListener('click', () => {
-    wrapper.innerHTML = `<iframe 
-      src="https://player.vimeo.com/video/1057620315?badge=0&autopause=0&autoplay=1&player_id=0&app_id=58479" 
-      frameborder="0" 
-      allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
-      referrerpolicy="strict-origin-when-cross-origin" 
-      style="position:absolute; top:0; left:0; width:100%; height:100%;" 
-      title="Daaler">
-    </iframe>`;
-  });
-</script>
-<script>
-  const wrapper = document.querySelector('.video-wrapper');
-  wrapper.addEventListener('click', () => {
-    wrapper.innerHTML = `<iframe 
-      src="https://player.vimeo.com/video/1057620315?autoplay=1" 
-      style="position:absolute; top:0; left:0; width:100%; height:100%;" 
-      frameborder="0" 
-      allow="autoplay; fullscreen; picture-in-picture" 
-      allowfullscreen>
-    </iframe>`;
-  });
+    // jednou se to spustí, pak už ne
+    let played = false;
+
+    function openIframe() {
+      if (played) return;
+      played = true;
+
+      // vytvoříme iframe bezpečně bez innerHTML
+      const iframe = document.createElement('iframe');
+      iframe.src = "https://player.vimeo.com/video/1057620315?badge=0&autopause=0&autoplay=1";
+      iframe.setAttribute('frameborder','0');
+      iframe.setAttribute('allow','autoplay; fullscreen; picture-in-picture; encrypted-media; clipboard-write; web-share');
+      iframe.setAttribute('allowfullscreen','');
+      iframe.style.position = 'absolute';
+      iframe.style.top = '0';
+      iframe.style.left = '0';
+      iframe.style.width = '100%';
+      iframe.style.height = '100%';
+      iframe.title = 'Daaler';
+
+      // vyčistíme wrapper a vložíme iframe
+      wrapper.innerHTML = '';
+      wrapper.appendChild(iframe);
+
+      // jako fallback: pokud se iframe nenačte (např. CSP), otevřeme video do nové záložky
+      // po 2s zkontrolujeme, zda iframe má název dokumentu — jednoduchá heuristika
+      setTimeout(() => {
+        try {
+          // cross-origin access může selhat -> bude vyhozena výjimka a fallback se neprovede
+          const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+          if (!iframeDoc || iframeDoc.body === null) {
+            window.open('https://vimeo.com/1057620315', '_blank');
+          }
+        } catch (e) {
+          // cross-origin access typicky zablokováno - ale to neznamená, že nehraje, takže nic neděláme
+        }
+      }, 2000);
+    }
+
+    // posluchač jak na celý wrapper, tak na tlačítko (pro přístupnost)
+    wrapper.addEventListener('click', openIframe);
+    const btn = wrapper.querySelector('.play-button');
+    if (btn) btn.addEventListener('click', openIframe);
+
+    // klávesová přístupnost (Enter/Space na tlačítku)
+    if (btn) {
+      btn.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openIframe();
+        }
+      });
+    }
+  })();
 </script>
 					
 </section>
@@ -531,6 +553,7 @@ document.querySelectorAll('.video-wrapper').forEach(wrapper => {
 	</body>
 
 </html>
+
 
 
 

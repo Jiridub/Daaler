@@ -66,8 +66,18 @@
 						<h2>Reference a výsledky</h2>
 					</header>
 <!-- Video sekce -->
-<div class="video-wrapper" style="position:relative; width:100%; padding-top:56.25%; cursor:pointer;">
-  <img src="images/IMG_2395.jpeg" alt="Daaler" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;">
+<div class="video-wrapper" style="position:relative; width:100%; padding-top:56.25%;">
+  <!-- Náhled -->
+  <img src="images/IMG_2395.jpeg" alt="Daaler" class="video-thumb" style="
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      cursor:pointer;
+  ">
+  <!-- Play tlačítko -->
   <button class="play-button" aria-label="Přehrát video" style="
       position:absolute;
       top:50%;
@@ -82,67 +92,46 @@
       background-color:transparent;
       cursor:pointer;
   "></button>
+
+  <!-- Vimeo iframe – schovaný do doby kliknutí -->
+  <div class="iframe-container" style="
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      display:none;
+  ">
+    <iframe 
+      src="https://player.vimeo.com/video/1057620315?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+      frameborder="0" 
+      allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+      referrerpolicy="strict-origin-when-cross-origin" 
+      style="position:absolute;top:0;left:0;width:100%;height:100%;" 
+      title="Daaler"
+      allowfullscreen>
+    </iframe>
+  </div>
 </div>
 
 <script src="https://player.vimeo.com/api/player.js"></script>
 <script>
-  (function(){
+  (function() {
     const wrapper = document.querySelector('.video-wrapper');
-    if (!wrapper) return;
+    const thumb = wrapper.querySelector('.video-thumb');
+    const button = wrapper.querySelector('.play-button');
+    const iframeContainer = wrapper.querySelector('.iframe-container');
+    const iframe = iframeContainer.querySelector('iframe');
 
-    // jednou se to spustí, pak už ne
-    let played = false;
-
-    function openIframe() {
-      if (played) return;
-      played = true;
-
-      // vytvoříme iframe bezpečně bez innerHTML
-      const iframe = document.createElement('iframe');
-      iframe.src = "https://player.vimeo.com/video/1057620315?badge=0&autopause=0&autoplay=1";
-      iframe.setAttribute('frameborder','0');
-      iframe.setAttribute('allow','autoplay; fullscreen; picture-in-picture; encrypted-media; clipboard-write; web-share');
-      iframe.setAttribute('allowfullscreen','');
-      iframe.style.position = 'absolute';
-      iframe.style.top = '0';
-      iframe.style.left = '0';
-      iframe.style.width = '100%';
-      iframe.style.height = '100%';
-      iframe.title = 'Daaler';
-
-      // vyčistíme wrapper a vložíme iframe
-      wrapper.innerHTML = '';
-      wrapper.appendChild(iframe);
-
-      // jako fallback: pokud se iframe nenačte (např. CSP), otevřeme video do nové záložky
-      // po 2s zkontrolujeme, zda iframe má název dokumentu — jednoduchá heuristika
-      setTimeout(() => {
-        try {
-          // cross-origin access může selhat -> bude vyhozena výjimka a fallback se neprovede
-          const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-          if (!iframeDoc || iframeDoc.body === null) {
-            window.open('https://vimeo.com/1057620315', '_blank');
-          }
-        } catch (e) {
-          // cross-origin access typicky zablokováno - ale to neznamená, že nehraje, takže nic neděláme
-        }
-      }, 2000);
+    function playVideo() {
+      thumb.style.display = 'none';
+      button.style.display = 'none';
+      iframeContainer.style.display = 'block';
+      iframe.src += "&autoplay=1";
     }
 
-    // posluchač jak na celý wrapper, tak na tlačítko (pro přístupnost)
-    wrapper.addEventListener('click', openIframe);
-    const btn = wrapper.querySelector('.play-button');
-    if (btn) btn.addEventListener('click', openIframe);
-
-    // klávesová přístupnost (Enter/Space na tlačítku)
-    if (btn) {
-      btn.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          openIframe();
-        }
-      });
-    }
+    thumb.addEventListener('click', playVideo);
+    button.addEventListener('click', playVideo);
   })();
 </script>
 					
@@ -557,6 +546,7 @@ window.onbeforeunload = function () {
 	</body>
 
 </html>
+
 
 
 

@@ -3673,3 +3673,40 @@ input, select, textarea {
 #two {
     font-weight: bold;
 }
+/* Lightbox kontejner pro všechny id začínající na lightbox */
+[id^="lightbox"] {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  justify-content: center;
+  align-items: center;
+}
+
+/* Zobrazení aktivního lightboxu */
+[id^="lightbox"]:target {
+  display: flex;
+}
+
+/* Obrázek uvnitř lightboxu */
+[id^="lightbox"] img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 4px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Zavírací křížek */
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: #fff;
+  text-decoration: none;
+}
+

@@ -157,70 +157,21 @@
 							<span class="image fit"><img src="images/IMG_1602.png" alt="" /></span>
 							<h3>SPL a impedanční měření</h3>
 							<ul class="actions special">
-<!-- Carousel 1 -->
-<ul>
-  <li><a href="#" class="carousel-trigger" data-carousel="1" data-index="0" class="button">SPL</a></li>
-  <li><a href="#" class="carousel-trigger" data-carousel="1" data-index="1" class="button">Ω</a></li>
+  <li><a href="#lightbox1" class="button">SPL</a></li>
+</ul>
+    <li><a href="#lightbox2" class="button">Ω</a></li>
 </ul>
 </div>
-
-<!-- Lightbox / Carousel -->
-<div class="carousel-lightbox">
-  <span class="lightbox-close">&times;</span>
-  <img src="" alt="Full size" class="carousel-img">
-  <button class="prev">&#10094;</button>
-  <button class="next">&#10095;</button>
+<!-- Lightboxy -->
+<div id="lightbox1">
+  <a href="#" class="lightbox-close">&times;</a>
+  <img src="images/IMG_1602.png" alt="Full size">
 </div>
 
-<!-- JavaScript -->
-<script>
-const carousels = {
-  1: ['images/IMG_1602.png', 'images/IMG_1603.png'],
-  2: ['images/IMG_1604.png', 'images/IMG_1605.png']
-};
-
-const triggers = document.querySelectorAll('.carousel-trigger');
-const lightbox = document.querySelector('.carousel-lightbox');
-const img = lightbox.querySelector('.carousel-img');
-const closeBtn = lightbox.querySelector('.lightbox-close');
-const prevBtn = lightbox.querySelector('.prev');
-const nextBtn = lightbox.querySelector('.next');
-
-let currentCarousel = null;
-let currentIndex = 0;
-
-function showImage(carouselId, index) {
-  currentCarousel = carousels[carouselId];
-  currentIndex = index;
-  img.src = currentCarousel[currentIndex];
-  lightbox.style.display = 'flex';
-}
-
-triggers.forEach(trigger => {
-  trigger.addEventListener('click', e => {
-    e.preventDefault();
-    const carouselId = trigger.dataset.carousel;
-    const index = parseInt(trigger.dataset.index);
-    showImage(carouselId, index);
-  });
-});
-
-closeBtn.addEventListener('click', () => lightbox.style.display = 'none');
-
-prevBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex - 1 + currentCarousel.length) % currentCarousel.length;
-  img.src = currentCarousel[currentIndex];
-});
-
-nextBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex + 1) % currentCarousel.length;
-  img.src = currentCarousel[currentIndex];
-});
-
-lightbox.addEventListener('click', e => {
-  if (e.target === lightbox) lightbox.style.display = 'none';
-});
-</script>
+<div id="lightbox2">
+  <a href="#" class="lightbox-close">&times;</a>
+  <img src="images/IMG_1603.png" alt="Full size">
+</div>
 								
 						<div class="col-4 col-12-medium">
 							<span class="image fit"><img src="images/IMG_1825.jpeg" alt="" /></span>
@@ -609,6 +560,7 @@ window.onbeforeunload = function () {
 	</body>
 
 </html>
+
 
 
 

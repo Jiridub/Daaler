@@ -3673,7 +3673,7 @@ input, select, textarea {
 #two {
     font-weight: bold;
 }
-/* Lightbox kontejner pro všechny id začínající na lightbox */
+/* Lightbox pro všechny id začínající na lightbox */
 [id^="lightbox"] {
   display: none;
   position: fixed;
@@ -3709,4 +3709,3 @@ input, select, textarea {
   color: #fff;
   text-decoration: none;
 }
-

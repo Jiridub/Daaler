@@ -165,12 +165,13 @@
 					</div>
 						
 		<div class="col-4 col-12-medium">
-							<style>
-<style>
-.image.fit.half img {
-    width: 50%;
-    margin: 0 auto;
+							<style><style>
+.col-4.col-12-medium .image.fit.half img {
+    width: 100% !important;   /* stejné jako ostatní */
+    max-width: 300px !important; /* nebo libovolná velikost, co odpovídá těm třem prvním */
+    height: auto;
     display: block;
+    margin: 0;
 }
 </style>
 
@@ -583,6 +584,7 @@ window.onbeforeunload = function () {
 	</body>
 
 </html>
+
 
 
 

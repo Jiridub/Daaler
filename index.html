@@ -102,15 +102,26 @@
             </ul>
         </div>
 
-        <!-- Text Reference a výsledky dole -->
-        <header class="major">
-            <h2>Reference a výsledky</h2>
-        </header>
+        <style>
+.video-wrapper {
+    margin-top: 0;       /* odstraní prázdný prostor nad videem */
+    margin-bottom: 30px; /* mezera pod videem */
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* zachování 16:9 poměru */
+}
+</style>
 
-    </div>
+<!-- Text Reference a výsledky dole -->
+<header class="major">
+    <h2>Reference a výsledky</h2>
+</header>
+
+</div>
 </section>
+
 <!-- Video sekce -->
-<div class="video-wrapper" style="position:relative; width:100%; padding-top:56.25%;">
+<div class="video-wrapper">
   <!-- Náhled -->
   <img src="images/IMG_2395.jpeg" alt="Daaler" class="video-thumb" style="
       position:absolute;
@@ -602,6 +613,7 @@ window.onbeforeunload = function () {
 	</body>
 
 </html>
+
 
 
 

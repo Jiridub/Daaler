@@ -70,25 +70,45 @@
 }
 </style>
 
-<section id="three" class="main style1 special">
+<style>
+/* Obrázek Technical sheet zmenšený a centrovaný */
+.main.style1.special .image.fit.half img {
+    width: 50% !important;
+    height: auto !important;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Centrované nadpisy a tlačítka */
+.main.style1.special h2,
+.main.style1.special h3,
+.main.style1.special .actions.special {
+    text-align: center;
+}
+</style>
+
+<section class="main style1 special">
     <div class="container">
-        <header class="major">
-        </header>
+
+        <!-- Obrázek s tlačítkem -->
         <div class="col-4 col-12-medium">
             <span class="image fit half">
                 <img src="images/Technical_sheet.PNG" alt="" />
             </span>
-            <h3>Technický list</h3>
             <ul class="actions special">
                 <li>
                     <a href="images/Technical_sheet.pdf" download class="button">Stáhnout</a>
                 </li>
             </ul>
         </div>
+
+        <!-- Text Reference a výsledky dole -->
+        <header class="major">
+            <h2>Reference a výsledky</h2>
+        </header>
+
     </div>
 </section>
-						<h2>Reference a výsledky</h2>
-					</header>
 <!-- Video sekce -->
 <div class="video-wrapper" style="position:relative; width:100%; padding-top:56.25%;">
   <!-- Náhled -->
@@ -582,6 +602,7 @@ window.onbeforeunload = function () {
 	</body>
 
 </html>
+
 
 
 

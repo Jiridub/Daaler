@@ -60,22 +60,33 @@
 			</section>
 
 		<!-- Three -->
-			<section id="three" class="main style1 special">
-				<div class="container">
-					<header class="major">
-						</div>
-					<div class="col-4 col-12-medium">
-  					<span class="image fit half">
-    				<img src="images/Technical_sheet.PNG" alt="" />
-  					</span>
-  					<h3>Technický list</h3>
-  					<ul class="actions special">
-    				<li>
-      				<a href="images/Technical_sheet.pdf" download class="button">Stáhnout</a>
-    				</li>
-  					</ul>
-				</div>
-				</section>
+			<style>
+/* jen pro tento konkrétní obrázek */
+#three .image.fit.half img {
+    width: 50% !important;
+    height: auto !important;
+    display: block;
+    margin: 0;
+}
+</style>
+
+<section id="three" class="main style1 special">
+    <div class="container">
+        <header class="major">
+        </header>
+        <div class="col-4 col-12-medium">
+            <span class="image fit half">
+                <img src="images/Technical_sheet.PNG" alt="" />
+            </span>
+            <h3>Technický list</h3>
+            <ul class="actions special">
+                <li>
+                    <a href="images/Technical_sheet.pdf" download class="button">Stáhnout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
 						<h2>Reference a výsledky</h2>
 					</header>
 <!-- Video sekce -->
@@ -571,6 +582,7 @@ window.onbeforeunload = function () {
 	</body>
 
 </html>
+
 
 
 
